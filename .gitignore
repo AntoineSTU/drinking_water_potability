@@ -8,15 +8,16 @@
 __pycache__/
 *.py[cod]
 *$py.class
+notebooks/.ipynb_checkpoints
 
 # env variables
 .env
 
 # Local models
-/local_models
+local_models/*
+!local_models/.gitkeep
 
 # local logs
-scores.local.csv
-
-# code carbon
-codecarbon
+logs/scores.local.csv
+logs/search_params/*
+!logs/search_params/.gitkeep

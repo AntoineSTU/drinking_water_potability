@@ -109,11 +109,3 @@ class StackingClf():
         preds_probs = self.predict_proba(X)
         predicted_class = np.round(preds_probs[:, 1]).astype(int)
         return predicted_class
-
-
-class StackingPrePipeline():
-    def __init__():
-        pass
-
-    def transform(X):
-        return X, None

@@ -46,15 +46,21 @@ CodeCarbon: <https://github.com/mlco2/codecarbon>
 
 Before running the models, you should put your data file (`drinking_water_potability.csv`) in the _input/raw_ folder.
 
-#### Option 1
+Then, you should run the train/test split script:
 
-To train and evaluate a model
+```bash
+python3 create_folds.py
+```
+
+### Train and evaluate a model (option 1)
+
+To train and evaluate a model:
 
 ```bash
 ./run.sh extratrees
 ```
 
-#### Option 2
+### Train and evaluate a model (option 2)
 
 * To train a model:
 
@@ -69,3 +75,62 @@ python src/inference.py \
 --model extratrees \
 --data input/drinking_water_potability.csv
 ```
+
+### Explore all the models
+
+You can run
+
+```bash
+python3 run_get_best_params.py
+```
+
+Then you can see the results in the *logs/results_all_models.csv* file
+
+### Run the drinking water potability app (locally)
+
+- First you must explore all the models
+
+```bash
+python3 run_get_best_params.py
+```
+
+- Then you must create the stacking model
+
+To do so, you can run the _Ensembling.ipynb_ notebook
+
+- Finally you can run the app
+
+```bash
+python3 app.py
+```
+
+Your app is then available on http://127.0.0.1:7860/
+
+## Notebooks
+
+We created several notebooks (in the _notebooks_ folder) to try things and produce interesting results.
+
+### Exploratory Data Analysis.ipynb
+
+In this notebook, we explore the data:
+- Understand the features
+- Compare with WHO recommendation
+- Explore data structure (scale, correlations, outliers)
+- Detect missing data
+- Visualize data
+
+### Check folds.ipynb
+
+This notebook's goal is to check if the folds we created (and the train/test split) are well balanced
+
+### Model Training.ipynb
+
+This notebook shows how we can train the models
+
+### Ensembling.ipynb
+
+This notebook takes the best models and create a new one using the stacking method (see [this article](https://towardsdatascience.com/ensemble-learning-stacking-blending-voting-b37737c4f483))
+
+### Interpret results.ipynb
+
+This notebook uses a library to interpret the models' results
