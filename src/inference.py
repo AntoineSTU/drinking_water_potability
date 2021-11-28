@@ -14,10 +14,7 @@ from .evaluate import test
 def predict_one_sample(sample: np.array,
                        model_name: str,
                        model_path: str = config.SAVED_MODELS,
-                       fold: int = -1) -> tuple[np.array,
-                                                np.array,
-                                                Any,
-                                                Any]:
+                       fold: int = -1):
     """
     Predict water drinking potability class and probablities from one sample data
     :param sample: array-like of length 9 containing data used for prediction

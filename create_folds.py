@@ -1,8 +1,8 @@
 """ create folds for cross-validation """
 
-from src import config
 import pandas as pd
 from sklearn.model_selection import train_test_split, StratifiedKFold
+from src import config
 
 if __name__ == "__main__":
     # Read training data
